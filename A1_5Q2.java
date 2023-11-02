@@ -22,8 +22,7 @@ public class A1_5Q2{
         final int LIMIT = 50;       // max value of number in list
         // ***** variables *****
 
-        //String banner = "";             // output banner
-        
+        // String banner = "";             // output banner
         int y = 2;                      // question number for banner
         String prompt = "";             // prompt for user input
 
@@ -39,10 +38,11 @@ public class A1_5Q2{
         // the array
         int[] list = new int[MAX];
         int[] frequency = new int[LIMIT];
-        int n = 0;
-        int sum = 0;              // sum of the array of ints
+        int n = 0;                // var for random number for data
+        int o = 0;                // var for random number for range calculation
         int i = 0;                // iteration of for loop
         int count = 0;            // iteration of for loop
+        int sumRange = 0;         // var for alculating sum of range frequencies
 
         // ***** objects *****
 
@@ -54,6 +54,7 @@ public class A1_5Q2{
         BufferedReader fin = new BufferedReader(new FileReader("List.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
 
+        Random random = new Random(); 
         // ***** print banners *****
 
         System.out.println(getBanner(nl, y));
@@ -70,6 +71,7 @@ public class A1_5Q2{
         strin = fin.readLine();
         //System.out.println(strin);
 
+        // make array list
         while(strin != null){
             //System.out.println(strin);
 
@@ -95,6 +97,7 @@ public class A1_5Q2{
             strin = fin.readLine();
         }// end eof
 
+        //make array frequency
         for(i = 0; i < MAX; i++){
             // parse the record
 
@@ -108,12 +111,13 @@ public class A1_5Q2{
 
         // ***** Print Formatted Output *****
         try{
+            //print list
             System.out.println("The list of random numbers: ");
             for(i = 0; i < MAX; i++){
                 System.out.println((i+1) + ": " + list[i] + " ");
             }// end for loop
 
-            // print the list
+            // print frequencies
             System.out.println(nl + "The frequency of the numbers: ");
             //int m = 0;
             for(i = 0; i < LIMIT; i++){
@@ -128,6 +132,21 @@ public class A1_5Q2{
         catch(ArrayIndexOutOfBoundsException e){
             System.out.println("Incomplete data record");
         } // end array exception
+        
+        
+        // Let user see more data
+        
+        // see frequency of the number
+        n = 1 + random.nextInt(LIMIT);
+        System.out.println("Frequency of the number: " + n);
+        System.out.println(frequency[n-1]);
+        
+        // see frequencies of a range of numbers
+        n = 1 + random.nextInt(LIMIT);
+        o = 1 + random.nextInt(n-1);
+        //sumRange = 
+        System.out.println("Frequency of the numbers from " + o + " to " + n + ": " + sumRange);
+        
         // ***** Closing Message *****
 
         printClosingMessage();
