@@ -23,7 +23,7 @@ public class A1_5Q2{
         // ***** variables *****
 
         //String banner = "";             // output banner
-        int x = 1;                      // assignemnt number for banner
+        
         int y = 2;                      // question number for banner
         String prompt = "";             // prompt for user input
 
@@ -56,7 +56,7 @@ public class A1_5Q2{
 
         // ***** print banners *****
 
-        System.out.println(getBanner(nl, x, y));
+        System.out.println(getBanner(nl, y));
         //fout.print(banner);
 
         // ***** Get Input *****
@@ -141,13 +141,13 @@ public class A1_5Q2{
 
     // **** user defined methods ****
 
-    public static String getBanner(String nl, int x, int y){
+    public static String getBanner(String nl, int y){
         String banner = "";   // banner to be returned to calling function 
 
         banner = "*****************************" + nl;
         banner += "Name:        Ruhani" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  A 1.5" + "Q" + y + nl;
+        banner += "Assignment:  A 1.5" + " Q" + y + nl;
         banner += "*****************************" + nl + nl;
 
         return banner;
