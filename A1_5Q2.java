@@ -42,8 +42,10 @@ public class A1_5Q2{
         int o = 0;                // var for random number for range calculation
         int i = 0;                // iteration of for loop
         int count = 0;            // iteration of for loop
-        int sumRange = 0;         // var for alculating sum of range frequencies
-
+        
+        String frequencyRange = "";
+        String frequencyNumber = "";
+        
         // ***** objects *****
 
         Scanner scanner = new Scanner(System.in);
@@ -109,16 +111,28 @@ public class A1_5Q2{
             } // end array exception
         }
 
+        // calculate frequency of the number
+        n = 1 + random.nextInt(LIMIT);
+        frequencyNumber = (nl + "Frequency of the number " + n + ": " + (frequency[n-1]));
+        
+        
+        // calculate frequencies of a range of numbers
+        n = 1 + random.nextInt(LIMIT);
+        o = 1 + random.nextInt(n-1);
+        for(i = 0; i<=(n-o); i++){
+            frequencyRange += (nl + (o+i) + ": " + (frequency[o+i-1]));
+        }
+        
         // ***** Print Formatted Output *****
         try{
             //print list
-            System.out.println("The list of random numbers: ");
-            for(i = 0; i < MAX; i++){
-                System.out.println((i+1) + ": " + list[i] + " ");
-            }// end for loop
+            // System.out.println("The list of random numbers: ");
+            // for(i = 0; i < MAX; i++){
+                // System.out.println((i+1) + ": " + list[i] + " ");
+            // }// end for loop
 
             // print frequencies
-            System.out.println(nl + "The frequency of the numbers: ");
+            System.out.println("The frequency of the numbers: ");
             //int m = 0;
             for(i = 0; i < LIMIT; i++){
                 System.out.println((i+1) + ": " + frequency[i] + " ");
@@ -137,15 +151,11 @@ public class A1_5Q2{
         // Let user see more data
         
         // see frequency of the number
-        n = 1 + random.nextInt(LIMIT);
-        System.out.println("Frequency of the number: " + n);
-        System.out.println(frequency[n-1]);
-        
+        System.out.println(frequencyNumber);
+         
+        System.out.println(nl + "Frequency of the numbers from " + o + " to " + n + ": ");
         // see frequencies of a range of numbers
-        n = 1 + random.nextInt(LIMIT);
-        o = 1 + random.nextInt(n-1);
-        //sumRange = 
-        System.out.println("Frequency of the numbers from " + o + " to " + n + ": " + sumRange);
+        System.out.println(frequencyRange);
         
         // ***** Closing Message *****
 
